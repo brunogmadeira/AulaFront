@@ -6,35 +6,48 @@
   <link rel="stylesheet" href="css.css">
   <title>Chat</title>
 </head>
-<body >
+<body>
   <div class="chat">
     <div class="header">
       <h2>Atendimento ao Cliente</h2>
     </div>
-    <div class="msg">
+    <div class="msg" id="message-container">
       <div class="dialog atendente">
         <div class="msg-atend">Ola! Como posso ajudar você?</div>
-      </div>
-      <div class="dialog cliente">
-        <div class="msg-cliente">Oi, minha encomenda da china não chegou ainda.</div>
-      </div>
-      <div class="dialog atendente">
-        <div class="msg-atend">Que pena! Ela ta parada na alfandega</div>
-      </div>
-      <div class="dialog cliente">
-        <div class="msg-cliente">Qual poderá ser meu procedimento?</div>
-      </div>
-      <div class="dialog atendente">
-        <div class="msg-atend">Pagar pela retirada de seus produtos</div>
       </div>
     </div>
     <div class="chat-input">
       <input type="text" id="message-input" placeholder="Digite sua mensagem...">
-      <button class="button-msg">Enviar</button>
+      <button class="button-msg" onclick="sendMessage()">Enviar</button>
     </div>
   </div>
   <div>
-      <a  href="https://github.com/brunogmadeira" target="_blank"><button class="gitHub" >Clica e segue ai, tmj!</button></a>
+      <a  href="https://github.com/brunogmadeira" target="_blank"><button class="gitHub">Clica e segue ai, tmj!</button></a>
   </div>
+
+  <script>
+    function sendMessage() {
+      var userInput = document.getElementById('message-input').value;
+      var messageContainer = document.getElementById('message-container');
+      var newClientMessage = document.createElement('div');
+      var newAtendenteMessage = document.createElement('div');
+      
+      newClientMessage.className = 'dialog cliente';
+      newClientMessage.innerHTML = '<div class="msg-cliente">' + userInput + '</div>';
+      messageContainer.appendChild(newClientMessage);
+      
+      newAtendenteMessage.className = 'dialog atendente';
+      newAtendenteMessage.innerHTML = '<div class="msg-atend">Aguardando resposta...</div>';
+      messageContainer.appendChild(newAtendenteMessage);
+      
+      // Simular resposta após um tempo
+      setTimeout(function() {
+        newAtendenteMessage.innerHTML = '<div class="msg-atend">Sua solicitação será processada em breve.</div>';
+      }, 2000);
+      
+      // Limpar o campo de entrada
+      document.getElementById('message-input').value = '';
+    }
+  </script>
 </body>
 </html>
