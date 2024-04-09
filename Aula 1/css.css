@@ -81,21 +81,3 @@ body {
 .button-msg:hover {
   background-color: #2980b9;
 }
-
-.gitHub{
-  margin-top: 10%;
-  width: 10%;
-  padding: 7px;
-  background-color: #3498db;
-  color: #fff;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  position: absolute;
-  top: 70%; 
-  right: 45%; 
-}
-
-.gitHub:hover {
-  background-color: #1f6593;
-}

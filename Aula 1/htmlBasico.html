@@ -18,34 +18,25 @@
     </div>
     <div class="chat-input">
       <input type="text" id="message-input" placeholder="Digite sua mensagem...">
-      <button class="button-msg" onclick="sendMessage()">Enviar</button>
+      <button class="button-msg" onclick="enviaMsg()">Enviar</button>
     </div>
-  </div>
-  <div>
-      <a  href="https://github.com/brunogmadeira" target="_blank"><button class="gitHub">Clica e segue ai, tmj!</button></a>
   </div>
 
   <script>
-    function sendMessage() {
-      var userInput = document.getElementById('message-input').value;
-      var messageContainer = document.getElementById('message-container');
-      var newClientMessage = document.createElement('div');
-      var newAtendenteMessage = document.createElement('div');
+    function enviaMsg() {
+      var msgUser = document.getElementById('message-input').value;
+      var msgCampo = document.getElementById('message-container');
+      var msgNovaCliente = document.createElement('div');
+      var msgNovaAtendente = document.createElement('div');
       
-      newClientMessage.className = 'dialog cliente';
-      newClientMessage.innerHTML = '<div class="msg-cliente">' + userInput + '</div>';
-      messageContainer.appendChild(newClientMessage);
+      msgNovaCliente.className = 'dialog cliente';
+      msgNovaCliente.innerHTML = '<div class="msg-cliente">' + msgUser + '</div>';
+      msgCampo.appendChild(msgNovaCliente);
       
-      newAtendenteMessage.className = 'dialog atendente';
-      newAtendenteMessage.innerHTML = '<div class="msg-atend">Aguardando resposta...</div>';
-      messageContainer.appendChild(newAtendenteMessage);
-      
-      // Simular resposta após um tempo
-      setTimeout(function() {
-        newAtendenteMessage.innerHTML = '<div class="msg-atend">Sua solicitação será processada em breve.</div>';
-      }, 2000);
-      
-      // Limpar o campo de entrada
+      msgNovaAtendente.className = 'dialog atendente';
+      msgNovaAtendente.innerHTML = '<div class="msg-atend">Aguardando resposta...</div>';
+      msgCampo.appendChild(msgNovaAtendente);
+    
       document.getElementById('message-input').value = '';
     }
   </script>
