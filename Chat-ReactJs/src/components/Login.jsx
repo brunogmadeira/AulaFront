@@ -19,9 +19,10 @@ export function Login() {
         placeholder='Nome de usuário' 
         value={username} 
         onChange={(e) => setUsername(e.target.value)} 
+        className="input"
       />
       <br />
-      <button onClick={handleLogin}>Entrar</button>
+      <button className="button" onClick={handleLogin}>Entrar</button>
     </div>
   );
 }
